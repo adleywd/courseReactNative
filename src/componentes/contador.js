@@ -8,7 +8,17 @@ export default class Contador extends Component {
         numero: this.props.numeroInicial
     }
 
-    maisUm = () => {
+    // Quando não for um arrow function, precisa dar bind no this.
+    // constructor (props){
+    //     super(props)
+    //     this.state = {/* .... */}
+    //     this.maisUm = this.maisUm.bind(this)
+    // }
+    // maisUm() {
+    //     this.setState( {numero: this.state.numero + 1 })
+    // }
+
+    maisUm() {
         this.setState( {numero: this.state.numero + 1 })
     }
 
@@ -20,7 +30,8 @@ export default class Contador extends Component {
             <View>
                 <Text style={{fontSize: 40}}>{this.state.numero}</Text>
                 <TouchableHighlight
-                    onPress={this.maisUm}
+                    // Ou usar um arrow no => this.maisUm
+                    onPress={() => this.maisUm()} // Isso se torna necessário para poder acessar o this(instancia de Contador) dentro da função maisUm()
                     onLongPress={this.limpar}>   
                     <Text>Incrementar/Zerar</Text>
                 </TouchableHighlight>
