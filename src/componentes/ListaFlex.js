@@ -28,7 +28,13 @@ const itemEstilo = {
     height: 50,
     backgroundColor: '#DDD',
     borderWidth: 0.5,
-    borderColor: '#222'
+    borderColor: '#222',
+
+    // Flex
+    //justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row', // Faz com que o eixo do flex box seja a linha
+    justifyContent: 'space-between',
 }
 
 export const Aluno = props =>
